@@ -31,7 +31,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
     private ApiInfo getDetailedInfo()
     {
         return new ApiInfoBuilder().title("Zf recruitment task").contact
-                (new Contact("Mateusz Gierasiński project github", "https://github.com/mgierasinski96/zf-recruitment-task", "" ))
+                (new Contact("Mateusz Gierasiński project github repo", "https://github.com/mgierasinski96/zf-recruitment-task", "" ))
                 .build();
     }
 
