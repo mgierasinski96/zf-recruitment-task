@@ -9,7 +9,10 @@ import java.util.List;
 public interface EmployerService {
 
     Employer findById(long id);
+
     void deleteEmployer(long id);
+
     List<Employer> findAllEmployers();
+
     Employer saveEmployer(Employer employer);
 }

@@ -27,7 +27,7 @@ public class EmployeeIntegrationTests {
     @Test
     public void getEmployeeById() {
 
-        Employee employee=new Employee("John", "Ruseel", "jrsu@gmail.com", null);
+        Employee employee = new Employee("John", "Ruseel", "jrsu@gmail.com", null);
         entityManager.persist(employee);
         entityManager.flush();
 
@@ -38,8 +38,8 @@ public class EmployeeIntegrationTests {
     @Test
     public void getAllEmployees() {
 
-        Employee employee=new Employee("John", "Ruseel", "jrsu@gmail.com", null);
-        Employee employee1=new Employee("Steve", "Johnson", "johnson@gmail.com", null);
+        Employee employee = new Employee("John", "Ruseel", "jrsu@gmail.com", null);
+        Employee employee1 = new Employee("Steve", "Johnson", "johnson@gmail.com", null);
         entityManager.persist(employee);
         entityManager.persist(employee1);
         entityManager.flush();

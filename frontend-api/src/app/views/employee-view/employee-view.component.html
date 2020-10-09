@@ -1,0 +1,18 @@
+<app-add-form [initData]="employeeData" [employeeOrEmployer]="true" [update]="true" #myChild
+               ></app-add-form>
+<table id="bossInfo" border="1">
+  <tr><th>Boss name</th><th>Boss last name</th></tr>
+  <tr><td>{{employeeData?.boss?.name}}</td><td>{{employeeData?.boss?.lastName}}</td></tr>
+  <tr><td colspan="2"><button mat-raised-button color="primary" (click)="setBossToNull()">Set boss to null</button></td></tr>
+  <tr><td colspan="2"><button mat-raised-button color="primary" (click)="deleteWholeEntity()">Delete whole entity</button></td></tr>
+</table>
+
+<div id="employeesWithoutBoss" *ngIf="employerView">
+  <h4>Employees without boss. Click on employee to set his boss as this one</h4>
+<app-my-table (click)="performAction($event)" [tableData]="tableData" #myChild1
+              [columnHeader]="columnHeader" ></app-my-table></div>
+
+<div id="employeesThatThisBossManage" *ngIf="employerView">
+  <h4>Employees where this employee is boss</h4>
+  <app-my-table [tableData]="tableData" #myChild2
+                [columnHeader]="columnHeader" ></app-my-table></div>

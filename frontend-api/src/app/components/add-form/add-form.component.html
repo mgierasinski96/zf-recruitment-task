@@ -1,0 +1,39 @@
+<div class="account">
+  <div class="account-container">
+    <h4 *ngIf="update==false">Add new Employee or Employer</h4>
+    <h4 *ngIf="update==true">Update</h4>
+    <div class="account-content">
+      <form class="example-form" [formGroup]="registerForm">
+        <mat-form-field *ngIf="update==true">
+          <mat-label>Id</mat-label>
+          <input matInput id="idForm" formControlName="id" value="{{initData?.id}}" readonly/>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input value="{{initData?.email}}" type="email" matInput formControlName="email"
+                 placeholder="Ex. pat@example.com" required/>
+          <mat-error *ngIf="hasError('email')">Required and format is: pat@example.com</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input value="{{initData?.name}}" type="text" matInput formControlName="name" required/>
+          <mat-error *ngIf="hasError('name')">At least 2 characters without spaces</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Last name</mat-label>
+          <input value="{{initData?.lastName}}" type="text" matInput formControlName="lastName" required/>
+          <mat-error *ngIf="hasError('lastName')">At least 2 characters without spaces</mat-error>
+        </mat-form-field>
+        <button *ngIf="update==false" [disabled]="!registerForm.valid" (click)="registerEmployeeOrEmployer()"
+                style="margin-right: 5px" mat-raised-button color="primary">Add
+        </button>
+        <button *ngIf="update==true" (click)="updateEmployeeOrEmployer()" mat-raised-button color="primary">Update
+        </button>
+      </form>
+    </div>
+
+
+    <br>
+  </div>
+</div>

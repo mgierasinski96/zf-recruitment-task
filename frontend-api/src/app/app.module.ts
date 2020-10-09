@@ -37,10 +37,22 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing-module';
+import {MyTableComponent} from './components/my-table/my-table.component';
+import {ListEmployeesEmployersComponent} from './views/list-employees-employers/list-employees-employers.component';
+import {AddFormComponent} from './components/add-form/add-form.component';
+import {CreateEmployeeEmployerComponent} from './views/create-employee-employer/create-employee-employer.component';
+import {EmployeeViewComponent} from './views/employee-view/employee-view.component';
+import {DialogAddToBossComponent} from './components/user-dialogs/add-to-boss.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyTableComponent,
+    ListEmployeesEmployersComponent,
+    AddFormComponent,
+    CreateEmployeeEmployerComponent,
+    EmployeeViewComponent,
+    DialogAddToBossComponent,
   ],
   imports: [
     AppRoutingModule,

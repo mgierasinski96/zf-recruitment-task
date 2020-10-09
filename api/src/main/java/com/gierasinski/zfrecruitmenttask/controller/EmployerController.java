@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value = "/employer")
 public class EmployerController {
 
@@ -38,9 +39,11 @@ public class EmployerController {
     public Employee saveEmployer(@RequestBody Employer employer) {
         return employerService.saveEmployer(employer);
     }
-    @DeleteMapping(value = "")
-    void deleteEmployer(@RequestParam long id){
+
+    @DeleteMapping(value = "/{id}")
+    void deleteEmployer(@PathVariable("id") long id) {
         employerService.deleteEmployer(id);
     }
+
 
 }

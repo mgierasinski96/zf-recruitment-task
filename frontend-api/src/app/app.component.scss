@@ -1,0 +1,51 @@
+@import '../globalScssVariables';
+
+.navbar {
+  overflow: hidden;
+  background-color: $blue;
+  position: relative;
+  font-size: 18px;
+  color: $content-color;
+}
+
+a:link {
+  color: $content-color;
+}
+
+a:visited {
+  color: $content-color;
+}
+
+.nav-items {
+  display: flex;
+  position: relative;
+  float: left;
+}
+
+.nav-item {
+  min-width: 100px;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.nav-item:hover {
+  transition: all 1s ease;
+  background-color: black;
+}
+
+/*---------------------
+  Main Container
+-----------------------*/
+
+.container {
+  width: 70%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.content {
+  position: relative;
+  min-height: 600px;
+  padding: 10px;
+}

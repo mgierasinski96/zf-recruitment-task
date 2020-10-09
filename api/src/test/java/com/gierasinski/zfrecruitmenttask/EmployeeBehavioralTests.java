@@ -29,26 +29,24 @@ public class EmployeeBehavioralTests {
 
     //when
     @Before
-    public void prepareEmployeesList()
-    {
+    public void prepareEmployeesList() {
         Mockito.when(employeeService.findAllEmployees()).thenReturn(Arrays.asList(
-                new Employee(1,"John", "Spencer","spencer@gmail.com",
-                        new Employer(222,"Mark", "Rogers", "boss@gmail.com", null)),
-                new Employee(3,"Martin", "Liroy","liroy@gmail.com", null),
-                new Employee(4,"Stacey", "Robe","stacey.robe@gmail.com", null),
-                new Employee(5,"Timothy", "Mercy","mercy82@yahoo.com", new Employer())
+                new Employee(1, "John", "Spencer", "spencer@gmail.com",
+                        new Employer(222, "Mark", "Rogers", "boss@gmail.com", null)),
+                new Employee(3, "Martin", "Liroy", "liroy@gmail.com", null),
+                new Employee(4, "Stacey", "Robe", "stacey.robe@gmail.com", null),
+                new Employee(5, "Timothy", "Mercy", "mercy82@yahoo.com", new Employer())
         ));
     }
 
     @Test
-    public void check_get_all_employees()
-    {
-        List<Employee> allExpectedEmployees=Arrays.asList(
-                new Employee(1,"John", "Spencer","spencer@gmail.com",
-                        new Employer(222,"Mark", "Rogers", "boss@gmail.com", null)),
-                new Employee(3,"Martin", "Liroy","liroy@gmail.com", null),
-                new Employee(4,"Stacey", "Robe","stacey.robe@gmail.com", null),
-                new Employee(5,"Timothy", "Mercy","mercy82@yahoo.com", new Employer())
+    public void check_get_all_employees() {
+        List<Employee> allExpectedEmployees = Arrays.asList(
+                new Employee(1, "John", "Spencer", "spencer@gmail.com",
+                        new Employer(222, "Mark", "Rogers", "boss@gmail.com", null)),
+                new Employee(3, "Martin", "Liroy", "liroy@gmail.com", null),
+                new Employee(4, "Stacey", "Robe", "stacey.robe@gmail.com", null),
+                new Employee(5, "Timothy", "Mercy", "mercy82@yahoo.com", new Employer())
 
         );
 
@@ -62,11 +60,10 @@ public class EmployeeBehavioralTests {
     }
 
     @Test
-    public void check_get_employees_without_boss()
-    {
-        List<Employee> allExpectedEmployees=Arrays.asList(
-                new Employee(3,"Martin", "Liroy","liroy@gmail.com", null),
-                new Employee(4,"Stacey", "Robe","stacey.robe@gmail.com", null)
+    public void check_get_employees_without_boss() {
+        List<Employee> allExpectedEmployees = Arrays.asList(
+                new Employee(3, "Martin", "Liroy", "liroy@gmail.com", null),
+                new Employee(4, "Stacey", "Robe", "stacey.robe@gmail.com", null)
         );
 
         //then

@@ -1,0 +1,12 @@
+<app-add-form [employeeOrEmployer]="checked" [update]="false" #myChild
+></app-add-form>
+<div style="position: absolute; left: 30%; z-index: 1000; top:10%;">
+  <span *ngIf="checked!=true" style="font-size: 30px; margin-right: 15px">New employee</span>
+  <span *ngIf="checked==true" style="font-size: 30px; margin-right: 15px">New employer</span>
+  <mat-slide-toggle
+    (input)="onChange($event)"
+    class="example-margin"
+    [color]="color"
+    [checked]="checked"> Create employer
+  </mat-slide-toggle>
+</div>

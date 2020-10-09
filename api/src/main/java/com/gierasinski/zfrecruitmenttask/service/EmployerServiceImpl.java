@@ -12,14 +12,17 @@ import java.util.List;
 
 @Service
 @Transactional
-public class EmployerServiceImpl implements EmployerService{
+public class EmployerServiceImpl implements EmployerService {
 
     private EmployerRepository employerRepository;
+    private EmployeeRepository employeeRepository;
 
     @Autowired
-    public EmployerServiceImpl(EmployerRepository employerRepository) {
+    public EmployerServiceImpl(EmployerRepository employerRepository, EmployeeRepository employeeRepository) {
         this.employerRepository = employerRepository;
+        this.employeeRepository = employeeRepository;
     }
+
     @Override
     public Employer findById(long id) {
         return employerRepository.getOne(id);
@@ -27,7 +30,13 @@ public class EmployerServiceImpl implements EmployerService{
 
     @Override
     public void deleteEmployer(long id) {
-        employerRepository.delete(employerRepository.getOne(id));
+        Employer employer = employerRepository.getOne(id);
+        employer.getEmployeesManaged().stream().forEach(employee -> // dont allow to delete cascade
+        {
+            employee.setBoss(null);
+            employeeRepository.save(employee);
+        });
+        employerRepository.delete(employer);
     }
 
     @Override
@@ -39,4 +48,5 @@ public class EmployerServiceImpl implements EmployerService{
     public Employer saveEmployer(Employer employer) {
         return employerRepository.save(employer);
     }
+
 }

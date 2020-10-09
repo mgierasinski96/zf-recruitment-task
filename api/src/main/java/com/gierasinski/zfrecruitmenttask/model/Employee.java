@@ -1,20 +1,21 @@
 package com.gierasinski.zfrecruitmenttask.model;
 
-import com.sun.istack.NotNull;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "is_boss")
+@DiscriminatorValue(value = "false")
 public class Employee {
 
     public Employee() {
     }
 
-    public Employee(long id,String name, String lastName, String email, Employer boss) {
-        this.id=id;
+    public Employee(long id, String name, String lastName, String email, Employer boss) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -39,12 +40,20 @@ public class Employee {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name="boss_id")
+    @JoinColumn(name = "boss_id")
     private Employer boss;
+
+    @Column(name = "is_boss", insertable = false, updatable = false)
+    protected boolean isBoss;
+
+    public boolean getIsBoss() {
+        return isBoss;
+    }
 
     public long getId() {
         return id;
     }
+
     public String getName() {
         return name;
     }
@@ -75,6 +84,18 @@ public class Employee {
 
     public void setBoss(Employer boss) {
         this.boss = boss;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public boolean isBoss() {
+        return isBoss;
+    }
+
+    public void setBoss(boolean boss) {
+        isBoss = boss;
     }
 
     @Override

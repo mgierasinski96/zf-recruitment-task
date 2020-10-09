@@ -1,0 +1,11 @@
+<script src="../../../../../../cinema/angular/src/app/views/searchMovies/search-movies.component.ts"></script>
+<app-my-table (click)="performAction($event.target)" [tableData]="tableData" #myChild
+              [columnHeader]="columnHeader"></app-my-table>
+<h3>Click on table row to perform more CRUD actions.</h3>
+<mat-slide-toggle
+  (input)="onChange($event)"
+  class="example-margin"
+  [color]="color"
+  [checked]="checked">
+  List only employers
+</mat-slide-toggle>
