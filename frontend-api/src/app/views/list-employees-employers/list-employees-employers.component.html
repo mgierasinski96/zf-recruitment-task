@@ -1,6 +1,5 @@
-<script src="../../../../../../cinema/angular/src/app/views/searchMovies/search-movies.component.ts"></script>
-<app-my-table (click)="performAction($event.target)" [tableData]="tableData" #myChild
-              [columnHeader]="columnHeader"></app-my-table>
+<app-my-table [tableData]="tableData" #myChild
+              [columnHeader]="columnHeader" (selectedRow)="selectedRow($event)"></app-my-table>
 <h3>Click on table row to perform more CRUD actions.</h3>
 <mat-slide-toggle
   (input)="onChange($event)"

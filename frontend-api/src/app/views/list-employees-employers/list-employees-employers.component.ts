@@ -21,8 +21,7 @@ export class ListEmployeesEmployersComponent implements OnInit {
   tableData: Employee[];
   color: ThemePalette = 'accent';
   checked = false;
-  clickedId;
-  isClikedBoss;
+  clickedEmployee: Employee;
 
   constructor(private router: Router, private employeeService: EmployeeService,
               private employersService: EmployerService, private toastr: ToastrService) {
@@ -67,17 +66,12 @@ export class ListEmployeesEmployersComponent implements OnInit {
     this.toastr.error('Something went wrong');
   }
 
-  performAction(event) {
-    if (event.type !== 'button' && event.nodeName !== 'DIV' && event.nodeName !== 'TH' && event.nodeName !== 'INPUT') {
-      this.clickedId = event.parentNode.children[0]?.children[0]?.innerText ||
-        event.parentNode.parentNode?.children[0]?.children[0]?.innerText;
-      this.isClikedBoss = event.parentNode.children[4]?.children[0]?.innerText ||
-        event.parentNode.parentNode?.children[4]?.children[0]?.innerText;
-      if (this.isClikedBoss === 'true') {
-        this.router.navigate(['employerView/' + this.clickedId]);
-      } else if (this.isClikedBoss === 'false') {
-        this.router.navigate(['employeeView/' + this.clickedId]);
-      }
+  selectedRow(rowNumber: any) {
+    this.clickedEmployee = this.tableData[rowNumber];
+    if (this.clickedEmployee.isBoss === true) {
+      this.router.navigate(['employerView/' + this.clickedEmployee.id]);
+    } else if (this.clickedEmployee.isBoss === false) {
+      this.router.navigate(['employeeView/' + this.clickedEmployee.id]);
     }
   }
 }

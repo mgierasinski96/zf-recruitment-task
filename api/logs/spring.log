@@ -58,3 +58,32 @@
 2020-10-09 13:05:14.642  INFO 11296 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-10-09 13:05:14.642  INFO 11296 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-10-09 13:05:14.648  INFO 11296 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-10-20 00:23:55.169  INFO 2216 --- [main] c.g.z.ZfRecruitmentTaskApplication       : Starting ZfRecruitmentTaskApplication on Lenovo-PC with PID 2216 (C:\Users\Mateusz\Desktop\zf-recruitment\api\target\classes started by Mateusz in C:\Users\Mateusz\Desktop\zf-recruitment\api)
+2020-10-20 00:23:55.180  INFO 2216 --- [main] c.g.z.ZfRecruitmentTaskApplication       : No active profile set, falling back to default profiles: default
+2020-10-20 00:23:56.561  INFO 2216 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-10-20 00:23:56.637  INFO 2216 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65ms. Found 2 JPA repository interfaces.
+2020-10-20 00:23:57.215  INFO 2216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2020-10-20 00:23:57.233  INFO 2216 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-20 00:23:57.234  INFO 2216 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-20 00:23:57.333  INFO 2216 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-20 00:23:57.334  INFO 2216 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2025 ms
+2020-10-20 00:23:57.493  INFO 2216 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-20 00:23:57.538  INFO 2216 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-20 00:23:57.625  INFO 2216 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-20 00:23:57.805  WARN 2216 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-20 00:23:57.857  INFO 2216 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-20 00:23:57.967  INFO 2216 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-10-20 00:23:58.022  INFO 2216 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-20 00:23:58.240  INFO 2216 --- [task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-20 00:23:58.270  INFO 2216 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-10-20 00:23:58.386  INFO 2216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2020-10-20 00:23:58.388  INFO 2216 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-10-20 00:23:58.412  INFO 2216 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-10-20 00:23:58.467  INFO 2216 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-10-20 00:23:58.672  INFO 2216 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-10-20 00:24:00.318  INFO 2216 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-20 00:24:00.325  INFO 2216 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-20 00:24:01.050  INFO 2216 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-10-20 00:24:01.062  INFO 2216 --- [main] c.g.z.ZfRecruitmentTaskApplication       : Started ZfRecruitmentTaskApplication in 6.535 seconds (JVM running for 7.897)
+2020-10-20 00:25:50.581  INFO 2216 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-20 00:25:50.581  INFO 2216 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'

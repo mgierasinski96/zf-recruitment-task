@@ -21,13 +21,12 @@ export class EmployeeViewComponent implements OnInit {
   @ViewChild('myChild') private myChild: AddFormComponent;
   @ViewChild('myChild1') private myChild1: MyTableComponent;
   @ViewChild('myChild2') private myChild2: MyTableComponent;
-  tableData: Employee[];
+  myChild1TableData: Employee[];
+  myChild2TableData: Employee[];
   columnHeader = {'id': 'Id', 'name': 'Name', 'lastName': 'Surname'};
   employeeId: any;
   employeeData;
   employerView: boolean;
-;
-  clickedId;
 
   constructor(private employeeService: EmployeeService, private dialog: MatDialog, private router: Router,
               private employerService: EmployerService, private route: ActivatedRoute, private toastr: ToastrService) {
@@ -52,47 +51,43 @@ export class EmployeeViewComponent implements OnInit {
     });
   }
 
-  performAction(event: any) {
-    if (event.type !== 'button' && event.nodeName !== 'DIV' && event.nodeName !== 'TH' && event.nodeName !== 'INPUT') {
-      this.clickedId = event.target.parentNode.children[0]?.children[0]?.innerText ||
-        event.target.parentNode.parentNode?.children[0]?.children[0]?.innerText;
-      this.employeeService.getEmployeeById(this.clickedId).subscribe(response => {
-        const dialog = this.dialog.open(DialogAddToBossComponent, {
-          data: {
-            bossName: this.employeeData.name,
-            bossLastName: this.employeeData.lastName,
-            employeeName: response.name,
-            employeeLastName: response.lastName
-          }
+  selectedRow(rowNumber: any) {
+    const employeer = this.myChild1TableData[rowNumber];
+    const dialog = this.dialog.open(DialogAddToBossComponent, {
+      data: {
+        bossName: this.employeeData.name,
+        bossLastName: this.employeeData.lastName,
+        employeeName: employeer.name,
+        employeeLastName: employeer.lastName
+      }
+    });
+    dialog.afterClosed().subscribe(result => {
+      if (result) {
+        this.employeeService.getAndSetEmployeeToNewBoss(this.employeeData.id, employeer.id).subscribe(response1 => {
+          this.createTablesForBoss();
         });
-        dialog.afterClosed().subscribe(result => {
-          if (result) {
-            this.employeeService.getAndSetEmployeeToNewBoss(this.employeeData.id, response.id).subscribe(response1 => {
-              this.createTablesForBoss();
-            });
-          }
-        });
-      });
-    }
+      }
+    });
   }
 
   createTablesForBoss() {
     this.employeeService.getEmployeesWithoutBoss().subscribe(response => {
-      this.loadDataSuccess(response, this.myChild1);
+      this.myChild1TableData = response;
+      this.loadDataSuccess(this.myChild1TableData, this.myChild1);
     }, error => {
       this.loadDataFailure();
     });
     this.employeeService.getEmployeesForBoss(this.employeeId).subscribe(response => {
-      this.loadDataSuccess(response, this.myChild2);
+      this.myChild2TableData = response;
+      this.loadDataSuccess(this.myChild2TableData, this.myChild2);
     }, error => {
       this.loadDataFailure();
     });
   }
 
-  loadDataSuccess(response: any, table: MyTableComponent) {
+  loadDataSuccess(tableData: any, table: MyTableComponent) {
     this.toastr.success('Data fetched succesfully');
-    this.tableData = response;
-    table.init(this.tableData);
+    table.init(tableData);
   }
 
   loadDataFailure() {

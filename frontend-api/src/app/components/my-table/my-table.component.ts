@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
@@ -10,6 +10,8 @@ import {MatTableDataSource} from '@angular/material/table';
 export class MyTableComponent implements OnInit {
   @Input() tableData;
   @Input() columnHeader;
+  @Output()
+  public selectedRow = new EventEmitter<Object>(); // 1
   objectKeys = Object.keys;
   dataSource;
   @ViewChild(MatSort) sort: MatSort;
@@ -33,5 +35,9 @@ export class MyTableComponent implements OnInit {
   init(data) {
     this.tableData = data; // get data
     this.initializeTable(); // and initlize table
+  }
+
+  public rowClicked(event: any): void { // 2
+    this.selectedRow.emit(event.target.parentElement.parentElement.rowIndex - 1);
   }
 }

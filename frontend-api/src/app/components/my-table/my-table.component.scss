@@ -7,7 +7,15 @@
 
 
 }
-
+.spanClass//expand span to fill td
+{
+  line-height: 200%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
 //FILTER
 .filtrInput {
   border-radius: 5%;
@@ -55,6 +63,8 @@ input ::ng-deep {
 
 .mat-row td {
   color: $black;
+  position: relative;
+  text-align: center;
 }
 
 .mat-row:hover {
