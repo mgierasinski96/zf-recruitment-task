@@ -66,8 +66,13 @@ export class ListEmployeesEmployersComponent implements OnInit {
     this.toastr.error('Something went wrong');
   }
 
-  selectedRow(rowNumber: any) {
-    this.clickedEmployee = this.tableData[rowNumber];
+  selectedRow(employee: Employee) {
+    for (let i = 0; i < this.tableData.length; i++) {
+      if (employee.id === this.tableData[i].id) {
+        this.clickedEmployee = this.tableData[i];
+        break;
+      }
+    }
     if (this.clickedEmployee.isBoss === true) {
       this.router.navigate(['employerView/' + this.clickedEmployee.id]);
     } else if (this.clickedEmployee.isBoss === false) {

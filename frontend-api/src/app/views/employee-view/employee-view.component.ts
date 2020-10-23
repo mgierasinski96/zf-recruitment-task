@@ -51,19 +51,25 @@ export class EmployeeViewComponent implements OnInit {
     });
   }
 
-  selectedRow(rowNumber: any) {
-    const employeer = this.myChild1TableData[rowNumber];
+  selectedRow(employee: Employee) {
+    let worker: Employee;
+    for (let i = 0; i < this.myChild1TableData.length; i++) {
+      if (employee.id === this.myChild1TableData[i].id) {
+        worker = this.myChild1TableData[i];
+        break;
+      }
+    }
     const dialog = this.dialog.open(DialogAddToBossComponent, {
       data: {
         bossName: this.employeeData.name,
         bossLastName: this.employeeData.lastName,
-        employeeName: employeer.name,
-        employeeLastName: employeer.lastName
+        employeeName: worker.name,
+        employeeLastName: worker.lastName
       }
     });
     dialog.afterClosed().subscribe(result => {
       if (result) {
-        this.employeeService.getAndSetEmployeeToNewBoss(this.employeeData.id, employeer.id).subscribe(response1 => {
+        this.employeeService.getAndSetEmployeeToNewBoss(this.employeeData.id, worker.id).subscribe(response1 => {
           this.createTablesForBoss();
         });
       }

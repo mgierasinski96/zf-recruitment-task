@@ -13,7 +13,7 @@
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="objectKeys(columnHeader)"></tr>
-      <tr (click)="rowClicked($event)" mat-row *matRowDef="let row; columns: objectKeys(columnHeader);"></tr>
+      <tr (click)="rowClicked(row)" mat-row *matRowDef="let row; columns: objectKeys(columnHeader);"></tr>
     </table>
   </div>
 </div>

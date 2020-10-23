@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {Employee} from '../../models/Employee';
 
 @Component({
   selector: 'app-my-table',
@@ -37,7 +38,7 @@ export class MyTableComponent implements OnInit {
     this.initializeTable(); // and initlize table
   }
 
-  public rowClicked(event: any): void { // 2
-    this.selectedRow.emit(event.target.parentElement.parentElement.rowIndex - 1);
+  public rowClicked(employee: Employee): void { // 2
+    this.selectedRow.emit(employee);
   }
 }
